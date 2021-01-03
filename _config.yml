@@ -119,11 +119,11 @@ sitemap: true
 #     banner: "Your image url"
 
 # Pagination setting
-# paginate: 5
+paginate: 5
 
 # Disqus comments
-# disqus:
-#   shortname: "Your Disqus username"
+disqus:
+  shortname: "wkdtjsgur100"
 
 # Gitment comments
 # gitment:
