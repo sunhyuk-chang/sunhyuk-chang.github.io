@@ -9,7 +9,7 @@ comments: true
 
 ## 개요
 
-본 글을 보기 전 [왜 Serverless와 Zappa를 사용해야 할까](https://wkdtjsgur100.github.io/why-zappa-and-serverless) 글을 보고 오시면 좋습니다.
+본 글을 보기 전 [왜 Serverless와 Zappa를 사용해야 할까](https://sunhyuk-chang.github.io/why-zappa-and-serverless) 글을 보고 오시면 좋습니다.
 > Serverless와 zappa에 대해 이미 잘 알고 계신 분이라면 스킵해도 무방합니다.
 
 ## Zappa + Aurora(Serverless RDBMS) + Django Rest Framework
@@ -29,7 +29,7 @@ Zappa가 간단한 python 스크립트 정도는 배포하기가 매우 쉽지�
 여기에서는 파이썬 가상환경과 django에 대해서는 자세히 설명하지 않습니다.
 아래 링크를 참고하시기 바랍니다.
 
-- python 가상환경: https://wkdtjsgur100.github.io/ubuntu-pyenv-virtualenv-autoenv/
+- python 가상환경: https://sunhyuk-chang.github.io/ubuntu-pyenv-virtualenv-autoenv/
 - django 공식 홈페이지: https://docs.djangoproject.com/ko/3.1/intro/
 - Zappa github: https://github.com/Miserlou/Zappa
 
