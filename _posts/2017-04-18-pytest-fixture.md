@@ -17,7 +17,7 @@ tags: [ 'pytest', 'fixture' ]
 - 한 모듈(또는 클래스/세션)에서 테스트들을 거친 fixture를 공유하기
 - fixture finalization / teardown 코드 실행
 
-## pytest fixtures: explicit, modular, scalable.
+### pytest fixtures: explicit, modular, scalable.
 
 pytest를 사용하는 목적은, 테스트들이 반복적으로 실행 가능하게 하는 고정된 baseline을 제공하는데에 있다. 이는 xUnit 스타일인 setup/teardown 함수보다 훨씬 더 향상된 기능들을 다음과 같이 제공합니다.
 
@@ -27,12 +27,12 @@ pytest를 사용하는 목적은, 테스트들이 반복적으로 실행 가능�
 
 게다가, pytest는 classic xunit-style 설정을 지원합니다. 두가지 스타일을 섞을 수도 있고, 원한다면 클래식한 방법에서 점차 새로운 스타일로 옮길수도 있습니다. 또한 이미 존재하는 unittest.TestCase style 혹은 nose based 프로젝트들에서 부터 시작하는 것도 할 수 있습니다.
 
-## 함수 인자들로서 사용되는 fixture들(Fixtures as Function arguments)
+### 함수 인자들로서 사용되는 fixture들(Fixtures as Function arguments)
 
 테스트 함수들은 입력 인자로 이름을 지어서 fixture 객체를 받을 수 있습니다. 각각의 인자 이름에, 그 이름으로 된 fixture 함수는 fixture 객체를 제공합니다. fixture 함수들은 ```@pytest.fixture``` 로 등록한 함수들입니다. 간단한 예제를 한번 봅시다.
 
 ``` python
-# content of ./test_smtpsimple.py
+## content of ./test_smtpsimple.py
 import pytest
 
 @pytest.fixture
@@ -43,7 +43,7 @@ def smtp():
 def test_ehlo(smtp):
     response, msg = smtp.ehlo()
     assert response == 250
-    assert 0 # for demo purposes
+    assert 0 ## for demo purposes
 ```
 
 여기서 test_ehlo함수는 smtp fixture 값을 필요로 합니다. pytest는  smtp fixture 함수에 표시된 ```@pytest.fixture```를 발견하고 호출할 것입니다. 다음과 같이 테스트는 보여질 것입니다:
@@ -65,7 +65,7 @@ smtp = <smtplib.SMTP object at 0xdeadbeef>
     def test_ehlo(smtp):
         response, msg = smtp.ehlo()
         assert response == 250
->       assert 0 # for demo purposes
+>       assert 0 ## for demo purposes
 E       assert 0
 
 test_smtpsimple.py:11: AssertionError
@@ -84,18 +84,18 @@ test_smtpsimple.py:11: AssertionError
 > 다음과 같은 명령어로 사용가능한 fixture들을 볼 수 있습니다
 > pytest --fixtures test_simplefactory.py
 
-## "Funcargs" 종속성 대입의 대표적인 예
+### "Funcargs" 종속성 대입의 대표적인 예
 
 테스트 함수에 fixture를 넣을 때 pytest-2.0은 지금도 문서에 계속 표시되어 있는 funcargs또는 funcarg 메카니즘이란 용어를 소개합니다. 지금은 테스트 함수에서 인자들로서 fixture 값들을 주입하는 특정 경우를 언급하고 있습니다. pytest-2.3은 fixture들을 사용하는 가능성들이 좀 더 있지만 funcargsdms 직접적으로 test 함수의 종속성 상태를 허용하는 주요한 방법으로서 유지되고 있습니다.  
 
 앞선 예제들이 좀 더 디테일한 것들을 보여줄 때, funcargs는 test 함수들이 특정한 미리 초기화된 어플리케이션 객체들에 비해서 import/setup/cleanup 디테일들을 신경쓰지 않고 쉽게 받고 작동하게 해줍니다. injector의 역할을 하고 fixture 객체들의 consumer들이 있는 테스트 함수가 있는 종속성 유입의 대표적인 예제가 여기 있습니다.
 
-## 한 모듈(또는 클래스/세션)에서 테스트들을 거친 fixture를 공유하기
+### 한 모듈(또는 클래스/세션)에서 테스트들을 거친 fixture를 공유하기
 
 네트워크 접근을 필요로 하는 fixture들은 연경성에 의존하고 생성되는데 시간이 걸립니다. 이전의 예제를 확장해서, ```@pytest.fixture```에 ```scope='module'```을 붙여서 smtp fixture함수가 module당 한번 발생되도록 할 수 있습ㄴ디ㅏ. 한 테스트 모듈에서 여러 테스트 함수들은 앞서 말했던 것 같이 각각은 같은 smtp fixture 인스턴스를 받습니다. 다음 예제는 분리된 conftest.py 파일에서 fixture 함수를 만들어서 디렉터리에 있는 여러 테스트 모듈들로 부터 테스트들이 fixture 함수에 접근할 수 있도록 해줍니다.
 
 ``` python
-# content of conftest.py
+## content of conftest.py
 import pytest
 import smtplib
 
@@ -107,18 +107,18 @@ def smtp():
 fixture의 이름은 다시 smtp이고 fixture 함수 혹은 어떤 테스트에 매개변수를 입력해서 이름 smtp를 리스트화 시킴으로서 이 결과에 접근할 수 있게 됩니다.(conftest.py가 위치한 디렉터리 에)
 
 ``` python
-# content of test_module.py
+## content of test_module.py
 
 def test_ehlo(smtp):
     response, msg = smtp.ehlo()
     assert response == 250
     assert b"smtp.gmail.com" in msg
-    assert 0  # for demo purposes
+    assert 0  ## for demo purposes
 
 def test_noop(smtp):
     response, msg = smtp.noop()
     assert response == 250
-    assert 0  # for demo purposes
+    assert 0  ## for demo purposes
 ```
 
 우리는 일부러 assert 0 상태를 넣어서 실패한 다음 무슨 일이 일어나고 있는지 조사하고 지금 테스트들이 작동 될 수 있는지 검사합니다.
@@ -141,7 +141,7 @@ smtp = <smtplib.SMTP object at 0xdeadbeef>
         response, msg = smtp.ehlo()
         assert response == 250
         assert b"smtp.gmail.com" in msg
->       assert 0  # for demo purposes
+>       assert 0  ## for demo purposes
 E       assert 0
 
 test_module.py:6: AssertionError
@@ -152,7 +152,7 @@ smtp = <smtplib.SMTP object at 0xdeadbeef>
     def test_noop(smtp):
         response, msg = smtp.noop()
         assert response == 250
->       assert 0  # for demo purposes
+>       assert 0  ## for demo purposes
 E       assert 0
 
 test_module.py:11: AssertionError
@@ -165,16 +165,16 @@ test_module.py:11: AssertionError
 ``` python
 @pytest.fixture(scope="session")
 def smtp(...):
-    # the returned fixture value will be shared for
-    # all tests needing it
+    ## the returned fixture value will be shared for
+    ## all tests needing it
 ```
 
-## fixture finalization / teardown 코드 실행
+### fixture finalization / teardown 코드 실행
 
 pytest는 fixture가 스코프를 벗어날 때 특정 finalization 코드를 실행하는 것을 지원합니다. return 대신 yield 상태를 사용해서, yield 상태 후에 모든 코드들은 teardown code로서 사용됩니다.
 
 ``` python
-# content of conftest.py
+## content of conftest.py
 
 import smtplib
 import pytest
@@ -182,7 +182,7 @@ import pytest
 @pytest.fixture(scope="module")
 def smtp(request):
     smtp = smtplib.SMTP("smtp.gmail.com")
-    yield smtp  # provide the fixture value
+    yield smtp  ## provide the fixture value
     print("teardown smtp")
     smtp.close()
 ```

@@ -7,14 +7,14 @@ tags: [ 'os' ]
 comments: true
 ---
 
-# 각 system call에 대한 간단한 설명
+## 각 system call에 대한 간단한 설명
 
 - `fork()` system call은 **새로운 프로세스를 생성** 할 때 사용된다.
 - `wait()` system call은 **자식 프로세스가 끝날때 까지 기다릴 때** 사용된다.
 - `getpid()` system call은 **현재 프로세스의 id** 를 가져온다.
 - `getppid()` system call은 **부모 프로세스의 id(parent pid)** 를 가져온다.
 
-# 예제
+## 예제
 
 ``` c
 #include <sys/types.h>
@@ -44,7 +44,7 @@ int main()
 }
 ```
 
-## 위 소스 코드에 대한 설명
+### 위 소스 코드에 대한 설명
 
 먼저, main문이 실행이 되면 Hello, my pid is 부모pid가 출력된다.
 
@@ -58,7 +58,7 @@ int main()
 
 ![process](/images/posts/process-split.png)
 
-## 위 소스코드의 수행결과
+### 위 소스코드의 수행결과
 
 — 부모 프로세스 pid: 135, 자식 프로세스 pid: 136이라 할 때의 수행 결과
 

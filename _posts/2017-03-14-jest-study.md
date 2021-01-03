@@ -8,12 +8,12 @@ tags: [ 'react', 'jest' ]
 
 > 이번에 Jest를 공부하게 되면서 react를 테스팅 하기 위해선 어떤 방법으로 해야할 지 생각하게 된 걸 간단히 정리했다.
 
-## React Component Test
+### React Component Test
 
 React는 Component 단위로 어플리케이션이 제작되기 때문에, 대부분 Component 단위로 테스팅이 이루어진다.  
 Component를 테스팅을 할 수 있는 여러가지 방법이 있는데 그 방법들을 보고 예제들과 함께 정리해 봤다.
 
-## Jest를 이용한 테스팅 방법
+### Jest를 이용한 테스팅 방법
 
 [Jest](https://facebook.github.io/jest/docs/getting-started.html#content)를 이용해서 할 수 있는 가장 간단한 테스팅 코드는 아래와 같다.  
 
@@ -51,13 +51,13 @@ describe('operator tests', () => {
 
 describe 함수도 it()이나 test() 함수와 마찬가지로 첫 번째 인자로 테스팅을 설명할 description을 인자로 받는다. 두 번째 인자로는 it()함수나 test() 함수가 포함된 함수를 매개변수로 가진다.  
 
-## Shallow Rendering을 이용한 컴포넌트 테스트
+### Shallow Rendering을 이용한 컴포넌트 테스트
 
-## Full DOM Rendering을 이용한 컴포넌트 테스트
+### Full DOM Rendering을 이용한 컴포넌트 테스트
 
-## Static Rendering을 이용한 컴포넌트 테스트
+### Static Rendering을 이용한 컴포넌트 테스트
 
-## Jest Snapshot Test
+### Jest Snapshot Test
 
 출처 --  
 - http://airbnb.io/enzyme/docs/api/shallow.html  

@@ -6,17 +6,17 @@ category: aws
 tags: [ 'aws' ]
 ---
 
-# AWS (Amazon Web Service)란?
+## AWS (Amazon Web Service)란?
 
 > AWS는 간단히 말해 아마존에서 제공하는 여러 서비스들을 의미합니다. 저희는 그 중에서도 EC2라는 서비스의 instance를 생성 및 접속하는 방법에 대해서 알아보겠습니다.
 
-# EC2 instance?
+## EC2 instance?
 
 > EC2 instance는 쉽게 생각해서 우리가 일반적으로 보는 PC나 서버와 똑같은 형태이며 Linux나 Windows가 설치되어 있습니다. 가상 서버이기 때문에 모니터에는 직접 연결할 수 없고 터미널 또는 원격 데스크톱 연결로 접속해야 합니다.(ssh 접속)
 
 EC2에 대한 상세한 내용은 [pyrasis.com][http://pyrasis.com/book/TheArtOfAmazonWebServices]라는 온라인 북을 보시면 더 자세히 아실 수 있습니다.
 
-# EC2 instance 생성
+## EC2 instance 생성
 
 먼저 [aws console](https://console.aws.amazon.com/console/home)에 접속해 회원가입 및 로그인을 하면, 우측 상단에 오하이오 dropdown이 보입니다. 이것을 클릭해서, 아래 사진과 같이 서울로 지역을 바꿔줍니다. 이는 AWS에서 인스턴스를 어느 지역에 생성할 지를 선택하는 것을 의미합니다.  
 
@@ -56,7 +56,7 @@ OS를 선택할 수 있는 창이 나옵니다. 우분투를 선택해줍시다.
 
 가장 오른쪽의 `IPv4 퍼블릭 IP` 밑의 ip를 이용해 ssh 접속을 하면 됩니다.
 
-# EC2 instance ssh 접속
+## EC2 instance ssh 접속
 
 인스턴스 셋팅이 끝났으면 shell에서(Mac인 경우엔 iterm이나 zshell 혹은 bash shell, Window인 경우엔 putty를 사용하시면 됩니다.)
 

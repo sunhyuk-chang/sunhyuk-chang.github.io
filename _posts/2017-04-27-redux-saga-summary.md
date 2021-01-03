@@ -11,7 +11,7 @@ tags: [ 'redux-saga', 'redux' ]
 
 > 본 문서를 읽기에 앞서서, javascript 비동기 동작에 대한 이해가 부족한 분은 [ES6 비동기 프로그래밍 관련 글](https://wkdtjsgur100.github.io/blog/2017/03/30/es6-async-programming/)을 읽고 오시길 추천합니다.
 
-## redux-saga란?
+### redux-saga란?
 
 redux-saga 공식 사이트에서는 다음과 같이 설명되어 있는데,
 > redux-saga 는 리액트/리덕스 애플리케이션의 사이드 이펙트, 예를 들면 데이터 fetching이나 브라우저 캐시에 접근하는 순수하지 않은 비동기 동작들을, 더 쉽고 좋게 만드는 것을 목적으로하는 라이브러리입니다.

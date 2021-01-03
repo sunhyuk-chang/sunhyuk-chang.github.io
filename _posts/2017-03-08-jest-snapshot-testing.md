@@ -10,7 +10,7 @@ tags: [ 'react', 'jest' ]
 
 <br>
 
-## Snapshot testing
+### Snapshot testing
 
 Snapshot test는 UI가 예측못하게 바뀌는 걸 방지하도록 할 때 사용되는 유용한 툴 입니다.  
 일반적인 모바일 앱에서의 snapshot 테스트 케이스는 UI component를 렌더링하고, 스크린샷을 찍고, 테스트 부근에 저장된 레퍼런스 이미지와 찍은 것들을 비교합니다.
@@ -19,7 +19,7 @@ Snapshot test는 UI가 예측못하게 바뀌는 걸 방지하도록 할 때 사
 
 <br>
 
-## Jest에서 Snapshot testing
+### Jest에서 Snapshot testing
 
 리액트 컴포넌트들을 테스팅 할 때 비슷한 접근 방법을 사용할 수 있습니다.  
 전체 앱을 빌드해야 하는 그래픽적인 UI를 렌더링 하는 대신에, React tree에 직렬화 가능한 값을 빠르게 생성하는 테스트 렌더러를 사용할 수 있습니다.  
@@ -60,7 +60,7 @@ exports[`Link renders correctly 1`] = `
 
 <br>
 
-### 스냅샷 업데이트
+#### 스냅샷 업데이트
 
 버그가 도입된 후 스냅샷 테스트가 실패하면 쉽게 발견할 수 있습니다.
 이런 상황이 발생하면, 그 issue에 가서 고치고 다시 snapshot test를 통과할 수 있도록 하면 됩니다.
@@ -98,7 +98,7 @@ $ jest --updateSnapshot
 
 <br>
 
-### 테스트들은 결정론적(Deterministic)이어야 한다.
+#### 테스트들은 결정론적(Deterministic)이어야 한다.
 
 테스트들은 결정론적(Deterministic)이어야 합니다. 이는 바뀌지 않았던 컴포넌트들에서 여러 시간동안 같은 테스트들을 실행해도 매번 같은 결과가 나와야 한다는 것을 의미합니다.  
 생성된 스냅샷들은 특정한 플랫폼에 종속되지 말아야 하며 다른 결정론적이지 않은 데이터들을 포함하지 말아야 할 의무가 있습니다.
@@ -116,14 +116,14 @@ Date.now = jest.fn(() => 1482363367071);
 
 <br>
 
-## 리액트, 리액트 네이티브와 스냅샷 테스팅
+### 리액트, 리액트 네이티브와 스냅샷 테스팅
 
 배웠던 것처럼, 스냅샷 테스팅은 React와 React Native 테스트 작성을 더 쉽게 만들어 줍니다.  
 [React 튜토리얼](https://facebook.github.io/jest/docs/tutorial-react.html)과 [React Native 튜토리얼](https://facebook.github.io/jest/docs/tutorial-react-native.html)을 통해 스냅샷 테스팅을 확인하세요.
 
 <br>
 
-## 추가적인 사용법
+### 추가적인 사용법
 
 스냅샷은 직렬화가능한(serializable) 값을 캡쳐할 수 있습니다.  
 공통적인 예제들은 [CLI 출력 스냅샷하기](https://github.com/facebook/jest/blob/master/integration_tests/__tests__/console-test.js) 또는 API response를 참고하세요.  

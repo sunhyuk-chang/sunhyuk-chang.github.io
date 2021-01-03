@@ -6,22 +6,22 @@ category: javascript
 tags: [ 'javascript', 'es6' ]
 ---
 
-## 자바스크립트 호출 스택
+### 자바스크립트 호출 스택
 
 자바스크립트의 함수 호출은, 호출 스택인 스택으로 인해 관리됩니다.
 
-## browser event loop
+### browser event loop
 
 각 브라우저 탭은 싱글 프로세스(single process : the event loop)에서 실행됩니다.  
 병렬로 함께 실행되는 다른 프로세스(timers, input handling, etc)는 각각의 task를 task queue에 추가하여 프로세스와 통신합니다.  
 
-### 타이머
+#### 타이머
 
 setTimeout(callback, ms);
 
 이와 같은 소스가 있을 경우, ms(millisecond) 후에 callback이 __task queue에 추가__ 됩니다. 만약 event loop가 차단 당하면 지정된 시간 이후 보다 나중에 setTimeout callback이 실행되게 됩니다.
 
-### Run to completion
+#### Run to completion
 
 항상 현재 task는 다음 task가 실행되기 전에 끝납니다.
 
@@ -38,15 +38,15 @@ First
 Second
 ```
 
-### Blocking the event loop
+#### Blocking the event loop
 
 위에서 설명한 것에 따라 해당 프로세스 안에서 긴 연산작업을 수행하게 하여 사용자 인터페이스를 멈추게 할 수도 있습니다.
 
-### 블로킹 피하기
+#### 블로킹 피하기
 
 위의 블로킹을 피하는 방법에 앞서 메인 프로세스 안에서 엄청 긴 연산작업을 수행하면 안되고 필요하다면 다른 프로세스로 옮겨야 합니다. event loop에서 수행시키고, 완료되면 통보하게 합니다. 예를 들어, setTimeout을 이용해 비 동기적인 sleep을 사용하는 방법이 있습빈다.
 
-### 비동기적 결과 수신
+#### 비동기적 결과 수신
 
 비동기적 결과를 수신하기 위해 두가지 패턴이 있습니다
 1. events
@@ -93,7 +93,7 @@ openRequest.onerror = function (error) {
 이것은 요청 객체를 만들고, 이벤트 리스너를 등록합니다. 그러나 open()을 사용하여 요청을 명시적으로 queue에 추가할 필요 없이
 task가 완료된 후에 실행됩니다. 이는 run-to-completion 특징 때문에 항상 안전하다는 사실을 알아둬야 합니다.
 
-### callbacks를 통한 비동기 결과
+#### callbacks를 통한 비동기 결과
 
 예시로 Node.js를 들 수 있습니다. 아래는 예시입니다.
 
@@ -108,7 +108,7 @@ fs.readFile('myfile.txt', { encoding: 'utf8' },
 });
 ```
 
-### Continuation-passing style(CPS)
+#### Continuation-passing style(CPS)
 
 다음 단계가 명시적으로 매개 변수로 전달되는 것을 CPS라 부릅니다. 아래의 코드를 봅시다.
 
@@ -149,7 +149,7 @@ function step3(result3) {
 console.log('E');
 ```
 
-### 콜백의 장단점
+#### 콜백의 장단점
 
 CPS는 기본적인 메커니즘을 이해하기 쉽지만, 단점도 있습니다.
 

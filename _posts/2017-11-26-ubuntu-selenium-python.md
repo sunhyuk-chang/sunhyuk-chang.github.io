@@ -6,9 +6,9 @@ category: selenium
 tags: [ 'selenium' ]
 ---
 
-# environment
+## environment
 
-## Backend
+### Backend
 
 - Selenium 3.8.0
 - Ubuntu 16.04
@@ -17,12 +17,12 @@ tags: [ 'selenium' ]
 - Nginx
 - UWSGI
 
-## Frontend
+### Frontend
 
 - React
 - create-react-app
 
-## AWS 설정
+### AWS 설정
 
 먼저 AWS에서 인스턴스를 생성하자  
 인스턴스는 생성할 때 운영체제로 ubuntu를 선택해야 한다.  
@@ -46,7 +46,7 @@ sudo ssh -i [Instance Key Path] ubuntu@[IP Address]
 sudo apt-get install language-pack-ko
 ```
 
-## pyenv 설정
+### pyenv 설정
 
 pyenv를 설치해서 python 버전을 관리하자.(버전은 python 3.6.0으로 설치하겠다)
 
@@ -72,7 +72,7 @@ $ pyenv versions
   3.6.0
 ```
 
-## virtualenv 설정
+### virtualenv 설정
 
 다음과 같은 명령어로 virtual-env의 환경설정을 해주자. virtualenv의 env명은 임의로 `test-3.6.0-env`로 설정했다.
 
@@ -92,7 +92,7 @@ pyenv virtualenv 3.6.0 test-3.6.0-env
   test-3.6.0-env
 ```
 
-## autoenv 설정
+### autoenv 설정
 
 다음과 같은 명령어로 autoenv를 설정한다.(virtualenv의 이름을 주의하자.)
 
@@ -110,11 +110,11 @@ touch .env
 echo "pyenv activate test-3.6.0-env" > .env
 ```
 
-## git 설정
+### git 설정
 
 git clone [repository url]
 
-## pip 설치
+### pip 설치
 
 사용할 pip들을 설치하자. 먼저, `requirements.txt`를 아래와 같이 써준다.
 
@@ -136,7 +136,7 @@ django-cors-headers는 CORS 방지를 위해 설치하는 것이고, PyVirtualDi
 pip3 install -r requirements.txt
 ```
 
-## Django Rest Framework(DRF) 설정
+### Django Rest Framework(DRF) 설정
 
 `python manage.py migrate`를 이용해서 migrate를 해준 다음,  
 `python manage.py runserver`를 이용해 제대로 작동하는지 테스트한다.
@@ -154,7 +154,7 @@ CORS_ORIGIN_WHITELIST = (
 ```
 를 추가하자.
 
-## Nginx 설정
+### Nginx 설정
 
 nginx를 설치하자.
 
@@ -187,20 +187,20 @@ nginx가 index.html 파일만 인식할 수 있도록 server 블록을 수정하
 ```
 server {
     . . .
-    index index.html; # index.nginx-debian.html, index.htm 삭제!
+    index index.html; ## index.nginx-debian.html, index.htm 삭제!
     . . .
 }
 ```
 
-## React 설정
+### React 설정
 
 
 먼저 노드와 npm을 깔고,
 ``` shell
-sudo npm cache clean -f # 강제로 캐시 삭제
-sudo npm install -g n # n 모듈 설치
-sudo n stable # node stable 버전 설치
-sudo npm install -g npm # npm 최신버전으로 업데이트
+sudo npm cache clean -f ## 강제로 캐시 삭제
+sudo npm install -g n ## n 모듈 설치
+sudo n stable ## node stable 버전 설치
+sudo npm install -g npm ## npm 최신버전으로 업데이트
 ```
 
 노드와 npm의 버전을 확인해보면, 정상적으로 설치되었다.
@@ -236,7 +236,7 @@ sudo cp -a static/ /var/www/html/;
 cd ~
 sudo service nginx restart;
 
-# set_up_frontend.sh
+## set_up_frontend.sh
 ```
 
 그리고 다음과 같은 명령어를 이용해 set_up_frontend의 권한을 바꿔주자.
@@ -247,7 +247,7 @@ chmod +x 755 ./set_up_frontend
 
 `./set_up_frontend`를 실행하게 되면,
 
-## UWSGI 설정
+### UWSGI 설정
 
 ``` shell
 pip3 install uwsgi
@@ -257,11 +257,11 @@ pip3 install uwsgi
 uwsgi --http :8000 --module [DJANGO_PROJECT_NAME].wsgi
 ```
 
-# AWS 포트 열기
+## AWS 포트 열기
 
 8000 포트를 임시로 열어두자.
 
-# Firefox 설치
+## Firefox 설치
 
 ``` shell
 sudo apt install firefox

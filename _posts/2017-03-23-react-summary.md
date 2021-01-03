@@ -6,7 +6,7 @@ category: react
 tags: [ 'react', 'redux' ]
 ---
 
-## react-redux
+### react-redux
 
 1. connect 함수
  - __connect([..options])__  

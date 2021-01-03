@@ -8,7 +8,7 @@ tags: [ 'environment setting' ]
 
 > Mac 터미널을 쓰며 shell, vim 편집기, git을 좀 더 편리하기 쓰기 위해 개인적으로 셋팅했던 것들을 정리하였다.
 
-# iterm2 설치
+## iterm2 설치
 
 먼저 맥 기본 터미널보다 터미널을 좀 더 편리하게 쓸 수 있는 [iterm2를 설치](http://code.google.com/p/iterm2/downloads/list
 )했다.
@@ -21,17 +21,17 @@ command + [ 또는 command + ] - 터미널 포커스 변경
 command + 1,2,3,4 - 화면 전환
 ```
 
-# zsh
+## zsh
 
 > 많은 커스터마이징이 가능한 zsh를 사용해서 커스터마이징 해보자.
 
-## installation
+### installation
 
 ``` text
 brew install zsh
 ```
 
-## Setting
+### Setting
 
 zsh를 default shell로 바꾸기 위해. chsh 명령어를 사용하자.
 ``` text
@@ -40,7 +40,7 @@ $ which zsh
 $ chsh -s /bin/zsh
 ```
 
-## oh-my-zsh
+### oh-my-zsh
 
 이건 zsh configuration 관리 프레임워크이다. zsh를 좀 더 화려하게 쓰기위해 설치하자.
 
@@ -56,11 +56,11 @@ default로는 robbyrussell으로 되어 있지만, af-magic, afowler, dpoggi등�
 
 테마를 사용하면, git branch 정보 등이 정해진 테마로 깔끔하게 나오게 되서 좋다.
 
-#### !! warning !!     
+##### !! warning !!     
 주로 파일 환경변수 등 여러 시스템 설정은 일반 터미널이나 iterm2에서는 ~/.bash_profile에서 처리하게 된다.  
 하지만 zsh에서는 ~/.bash_profile 대신 ~/.zshrc 파일을 편집해야 쉘에서 적용된다.
 
-# solarized color scheme 적용하기
+## solarized color scheme 적용하기
 
 > shell의 컬러를 보기 편하게 바꾸기 위해 solarized color scheme를 적용해보자
 
@@ -73,7 +73,7 @@ $ git clone https://github.com/altercation/solarized.git
 
 ![solarized setting](/images/posts/solarize_setting.png)
 
-# vim 설정하기( ~/.vimrc setting)
+## vim 설정하기( ~/.vimrc setting)
 
 vim을 커스터마이징하기 위해서는 ~/.vimrc 파일을 편집하면 된다. 아래는 내 ~/.vimrc 파일이다.
 
@@ -116,21 +116,21 @@ $ git clone https://github.com/altercation/vim-colors-solarized.git
 source ~/.vimrc
 ```
 
-# scm-breeze
+## scm-breeze
 
 > 이번엔 git을 편리하게 쓰기 위해 scm-breeze를 사용하자. 자세한 사항은 [git repo](https://github.com/scmbreeze/scm_breeze)에 나와있다.
 
-## installation
+### installation
 
 ``` text
 $ git clone git://github.com/scmbreeze/scm_breeze.git ~/.scm_breeze
 ~/.scm_breeze/install.sh
-$ source ~/.zshrc   # zsh를 사용하지 않을 경우엔 source ~/.bashrc를 사용
+$ source ~/.zshrc   ## zsh를 사용하지 않을 경우엔 source ~/.bashrc를 사용
 ```
 
 참고 : 루비가 설치되어 있으면 훨씬 빠르다고 한다.
 
-## Usage
+### Usage
 
 https://github.com/scmbreeze/scm_breeze#usage 를 보면 자세히 나와 있지만, 내가 주로 쓰는 명령어는
 

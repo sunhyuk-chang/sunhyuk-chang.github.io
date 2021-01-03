@@ -12,7 +12,7 @@ tags: [ 'nginx', 'react' ]
 > 이를 방지하기 위해, node.js의 express.js를 이용해 url을 관리하는 방법 등이 있는데, 각각의 방법에서
 > react-router를 사용하는 방법에 대해 포스팅했다.
 
-# react router로 배포하기
+## react router로 배포하기
 
 react-router를 사용했을 때, 로컬에서 http://localhost:8000/login 와 같이 접근하게 되면 /login에 해당되는 컴포넌트가 나온다.  
 하지만 https://linkuniversity.me/login 과 같이 배포 후에 특정 도메인을 통해 접근한다면,ㅜ 페이지를 찾을 수 없다는 페이지를 볼 수 있게 된다.  
@@ -21,7 +21,7 @@ react-router를 사용했을 때, 로컬에서 http://localhost:8000/login 와 �
  예를 들어 ```/login``` URL에 접속하려고 했을 때 ```/login``` URL에 맞는 html 파일을 nginx 내에서 찾으려고 하기 때문이다.  
 __따라서 BASE가 되는 URL이 아닌 다른 URL을 통해 사이트에 접속해도, index.html을 연결시켜 배포해 주는 작업이 필요하다.__  
 
-# nginx
+## nginx
 
 /etc/nginx/conf.d/vhosts.conf의 location 부분에 다음과 같은 코드를 추가한다.
 
@@ -35,7 +35,7 @@ server {
 
     location ~* \.(?:manifest|appcache|html?|xml|json)$ {
       expires -1;
-      # access_log logs/static.log; # I don't usually include a static log
+      ## access_log logs/static.log; ## I don't usually include a static log
     }
 
     location ~* \.(?:css|js)$ {
@@ -45,19 +45,19 @@ server {
       add_header Cache-Control "public";
     }
 
-    # Any route containing a file extension (e.g. /devicesfile.js)
+    ## Any route containing a file extension (e.g. /devicesfile.js)
     location ~ ^.+\..+$ {
       try_files $uri =404;
     }
 
-    # Any route that doesn't have a file extension (e.g. /devices)
+    ## Any route that doesn't have a file extension (e.g. /devices)
     location / {
         try_files $uri $uri/ /index.html;
     }
 }
 ```
 
-# apache
+## apache
 
 /etc/httpd/conf.d\vhosts.conf에  Rewrite* lines 부분에 다음과 같이 추가한다.  
 
@@ -70,17 +70,17 @@ server {
     ...
 
     RewriteEngine on
-    # Don't rewrite files or directories
+    ## Don't rewrite files or directories
     RewriteCond %{REQUEST_FILENAME} -f [OR]
     RewriteCond %{REQUEST_FILENAME} -d
     RewriteRule ^ - [L]
-    # Rewrite everything else to index.html to allow html5 state links
+    ## Rewrite everything else to index.html to allow html5 state links
     RewriteRule ^ index.html [L]
   </Directory>
 </VirtualHost>
 ```
 
-# node express
+## node express
 
 ``` js
 const express = require('express')
@@ -101,7 +101,7 @@ app.listen(port)
 console.log("server started on port " + port)
 ```
 
-# jboss web app
+## jboss web app
 
 [이 링크](https://gkedge.gitbooks.io/react-router-in-the-real/content/jboss_web_app.html)를 참고하자.  
 

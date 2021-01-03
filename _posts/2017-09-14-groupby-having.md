@@ -16,7 +16,7 @@ SELECT column-names
 HAVING condition
 ```
 
-# GROUP BY
+## GROUP BY
 
 MySQL에서의 GROUP BY는 특정 컬럼 이름을 지정(column-names)해주면 그 컬럼의 **UNIQUE한 값에 따라서 데이터를 그룹 짓고, 중복된 열은 제거됩니다.**    
 GROUP BY는 보통 집합 함수(*aggregate function*, [AVG, SUM, COUNT 등을 말합니다])와 같이 쓰이며, 다음과 같은 형태를 지닙니다.
@@ -49,7 +49,7 @@ GROUP BY status;
 
 ![groupby order table](/images/posts/groupby_order_table.png)
 
-# HAVING
+## HAVING
 
 HAVING은 간단하게 생각해서 GROUP BY한 결과에 조건을 붙이고 싶을때, 즉 GROUP BY의 WHERE 절과도 같다고 볼 수 있습니다.  
 

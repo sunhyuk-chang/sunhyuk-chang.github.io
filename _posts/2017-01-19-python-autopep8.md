@@ -6,13 +6,13 @@ category: python
 tags: [ 'python', 'autopep8' ]
 ---
 
-# autopep8 이란?
+## autopep8 이란?
 > python 파일을 PEP8 format으로 자동으로 바꿔주는 python package
 
-## Coding Convention?
+### Coding Convention?
 > 프로그램을 작성 할 때 사용되는 기준
 
-## PEP8(Python Enhance Proposal 8) format?
+### PEP8(Python Enhance Proposal 8) format?
 
 > python의 code convention은 pep8 format이 가장 대표적이다.
 

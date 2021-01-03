@@ -27,16 +27,16 @@ browser.quit()
 python 가상 환경을 위해, virtualenv, autoenv를 사용해서 환경을 셋팅하자
 
 ``` text
-$ pyenv virtualenv [Python Version] [new virtualenv name] # 새로운 가상환경 생성
+$ pyenv virtualenv [Python Version] [new virtualenv name] ## 새로운 가상환경 생성
 $ pyenv versions
 * system (set by /Users/jihun/.pyenv/version)
   3.5.2
   [new virtualenv name]
 
-$ touch .env   # autoenv
+$ touch .env   ## autoenv
 $ echo "pyenv activate [new virtualenv name]" > .env
-$ pip install selenium # selenium 설치
-$ pip install django # django 설치
+$ pip install selenium ## selenium 설치
+$ pip install django ## django 설치
 
 ```
 
@@ -48,7 +48,7 @@ $ pip freeze > requirements.txt
 
 git에 잘못된 파일을 commit list에 넣었을 경우, ```$ git rm -r --cached [file name]```를 사용해 해결합니다.
 
-# Function Test를 이용한 최소 기능의 애플리케이션 설계
+## Function Test를 이용한 최소 기능의 애플리케이션 설계
 
 셀레늄을 이용한 테스트에서는 실제 웹 브라우저를 실행해서 애플리케이션이 어떻게 동작하는지 사용자 관점에서 확인 할 수 있다. 이런 테스트를 기능테스트(functional test, FT)라고 부른다.
 

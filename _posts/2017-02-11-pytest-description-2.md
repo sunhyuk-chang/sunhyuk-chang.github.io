@@ -6,7 +6,7 @@ category: pytest
 tags: [ 'pytest', 'tdd','python','test' ]
 ---
 
-# Setting a breakpoint / aka set_trace()
+## Setting a breakpoint / aka set_trace()
 
 breakpoint를 설정하고 ```pdb.set_trace()```를 입력하려면 helper를 사용할 수 있습니다.
 
@@ -14,7 +14,7 @@ breakpoint를 설정하고 ```pdb.set_trace()```를 입력하려면 helper를 �
 import pytest
 def test_function():
   ...
-  pytest.set_trace()  # invoke PDB debugger and tracing
+  pytest.set_trace()  ## invoke PDB debugger and tracing
 ```
 
 pytest 버전 2.0.0 이전에 ```pytest -s``` 명령어로 캡처하는 것을 비활성화 시키면 PDB tracing을 입력 할 수 있었지만, 그 이후의 버전은 pytest가 자동적으로 비활성화 시켜준다.
@@ -25,7 +25,7 @@ pytest 버전 2.0.0 이전에 ```pytest -s``` 명령어로 캡처하는 것을 �
 
 pytest 버전 2.4.0부터 pytest.set_trace() wrapper를 사용하거나 pytest -s를 통해 pytest의 출력 캡쳐를 명시적으로 비활성화 할 필요없이 기본 Python import pdb; pdb.set_trace() 호출을 사용하여 PDB 추적을 시작 할 수도 있습니다.
 
-# 테스트 실행 지속성 프로파일링
+## 테스트 실행 지속성 프로파일링
 
 가장 느린 10개의 테스트 지속성들의 리스트를 얻기 위한 명령어
 
@@ -33,7 +33,7 @@ pytest 버전 2.4.0부터 pytest.set_trace() wrapper를 사용하거나 pytest -
 pytest --durations=10
 ```
 
-# JUnitXML 형식 파일 생성
+## JUnitXML 형식 파일 생성
 
 Jenkins나 다른 CI(Continuous integration) 서버들에게 read 될 수 있는 파일들을 생성하기 위해서, 이 명령어를 사용한다.
 
@@ -43,7 +43,7 @@ pytest -- junitxml=path
 
 이는 path에 XML file을 생성한다.
 
-## record_xml_property
+### record_xml_property
 
  버전 2.8에서 새로 추가
 
@@ -70,7 +70,7 @@ def test_function(record_xml_property):
 >
 > 또 이 기능을 하용하는 것은 어떤 스키마 인증서를 파괴한다는 것을 인지하십시오. 이는 어떤 CI 서버들과 함께 사용하였을 때 문제가 일어날 수 있습니다.
 
-# LogXML : add_global_property
+## LogXML : add_global_property
 
  버전 3.0에서 새로 추가
 

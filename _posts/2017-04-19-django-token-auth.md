@@ -6,7 +6,7 @@ category: django
 tags: [ 'django', 'token' ]
 ---
 
-## 토큰 인증
+### 토큰 인증
 
 권한 스키마는 간단한 토큰 기반의 HTTP 권한 스키마를 사용합니다. 토큰 인증은 클라이언트-서버 설정에 적절하고, native 데스크탑과 모바일 클라이언트 같은 것에 적합합니다.
 
@@ -50,7 +50,7 @@ curl -X GET http://127.0.0.1:8000/api/example/ -H 'Authorization: Token 9944b091
 
 > 참고 : 프로덕션에서 TokenAuthentication을 사용한다면 API가 https에서만 사용가능한 것인지 확인해야합니다.
 
-## 토큰 생성하기
+### 토큰 생성하기
 
 모든 User가 자동적으로 생성된 토큰을 가지고 있는 것을 원한다면, 간단히 User의 post_save 를 사용할 수 있습니다.
 

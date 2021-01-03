@@ -6,7 +6,7 @@ category: django
 tags: [ 'django', 'python' ]
 ---
 
-# 용어 정리
+## 용어 정리
 
 - 장고 앱 : 프로젝트의 한 기능을 표현하기 위해 디자인 된 작은 라이브러리.
 - 서드 파티 장고 패키지 : 파이썬 패키지 도구들에 의해 패키지화된, 재사용 가능한 프로그인 형태로 이용 가능한 장고 앱.
@@ -14,7 +14,7 @@ tags: [ 'django', 'python' ]
 각 앱은 주어진 임무에만 집중할 수 있어야 한다. Single Resposibillity와 비슷한 개념.
 앱 이름은 한 단어로만 작성하자.
 
-### 특정 setting을 바탕으로 명령 실행
+#### 특정 setting을 바탕으로 명령 실행
 
 cli에서 특정 setting을 바탕으로 명령을 실행(그냥 하나만 사용했을경우 시크릿키, api키, aws키 같은 값들이 세팅파일에 위치하게 때문에)
 
@@ -26,18 +26,18 @@ $ python manage.py shell --settings=mysite.setting.localsetting
 
 이는 환경변수를 이용해서도 해결이 가능하다.
 
-### 환경변수 세팅하기
+#### 환경변수 세팅하기
 
-#### MAC / LINUX
+##### MAC / LINUX
 
 ~/.bashrc 또는 ~/.bash_profile, ~/.zshrc에 ```export SECRET_KEY=1C34-32324-324``` 를 추가하는 식으로 세팅하고, source ~/.bashrc로 적용시킨다.
 
-#### CircleCI
+##### CircleCI
 
 [circleCI 공식 문서](https://circleci.com/docs/1.0/environment-variables/)를 참고하자.
 
 
-### 환경변수 가져오기 / 비밀키가 존재하지 않을 때 예외처리 (python)
+#### 환경변수 가져오기 / 비밀키가 존재하지 않을 때 예외처리 (python)
 
 ``` python
 
@@ -46,14 +46,14 @@ from django.core.exceptions import ImproperlyConfigured
 
 def get_env_variable(var_name):
   try:
-    # 환경변수 값를 반환
+    ## 환경변수 값를 반환
     return os.environ[var_name]
   except KeyError:
     error_msg = "Set the {} environment variable".format(var_name)
     raise ImproperlyConfigured(erro.r_msg)
 ```
 
-### 여러개의 requirements.txt 이용하기
+#### 여러개의 requirements.txt 이용하기
 
 환경에 따른 설치 컴포넌트들을 분리하는 방법을 보자.
 
@@ -71,7 +71,7 @@ requirements/
 - local.txt에는 개발환경에 따른 패키지를 작성한다.(-r base.txt를 추가해야 한다.)
 - ci.txt는 ci에 따른 패키지를 작성한다.(-r base.txt를 추가)
 
-### setting에서 파일 경로 처리하기
+#### setting에서 파일 경로 처리하기
 ``` python
 MEDIA_ROOT = "/User/jang/projects/"
 ```
@@ -81,11 +81,11 @@ MEDIA_ROOT = "/User/jang/projects/"
 아래의 ```os.path.join(BASE_DIR,"filename")```을 사용해서, 경로를 설정해주자
 
 ``` python
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+## Build paths inside the project like this: os.path.join(BASE_DIR, ...)
  BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ```
 
-## 쿼리와 데이터베이스 레이어에서 유의할 점
+### 쿼리와 데이터베이스 레이어에서 유의할 점
 
 - 단일 객체를 가져와 작업을 하는 세부 페이지 같은 뷰에서는 단일 객체에서 get_object_or_404() 이용(뷰에서만 이용한다!!), 이는 예외처리를 할 필요가 없다.
 - 다른 get()함수는 ObjectDoesNotExist 혹은 DoesNotExist 예외를 사용해 예외처리한다.

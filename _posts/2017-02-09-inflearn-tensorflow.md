@@ -6,18 +6,18 @@ category: machine-learning
 tags: [ 'tensorflow', 'machine-learning', 'inflearn' ]
 ---
 
-# Tensorflow
+## Tensorflow
 
-## 설치
+### 설치
 
 일단 [virtual-env 및 autoenv](https://cjh5414.github.io/python-%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD%EA%B5%AC%EC%B6%95/) 를 설정해주자.
 
 ```
 pip install tensorflow
-pip install tensorflow-gpu # GPU 사용가능 시 속도를 더 빠르게 해줌.
+pip install tensorflow-gpu ## GPU 사용가능 시 속도를 더 빠르게 해줌.
 ```
 
-## 첫 번째 프로그램
+### 첫 번째 프로그램
 
 tensorflow를 설치 하고, 아래의 프로그램을 실행해보자.(HelloWorld 출력)
 
@@ -50,7 +50,7 @@ from there.
 
  예를 들어, ``` c = a + b ```라고 하면 c에 a와 b를 더한 값이 들어가는 것이 아니라, 더하는 연산에 대한 정보가 들어가게 된다.
 
-## TensorFlow를 사용한 Linear Regression
+### TensorFlow를 사용한 Linear Regression
 
 Linear Regression의 cost function:
 ![cost](/images/posts/cost.png)  

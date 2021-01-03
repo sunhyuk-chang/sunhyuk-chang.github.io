@@ -9,15 +9,15 @@ comments: true
 
 > 해당 글에서는 1~3 정규화(1~3NF)에 대해서 작성되어 있습니다.
 
-# 용어 정리
+## 용어 정리
 
 정규화에 대한 설명에 앞서 데이터베이스와 관련된 용어를 알아야 할 필요가 있다.(이를 기반으로 설명하기 때문) 따라서 용어에 대해서 잘 숙지하지 못한 사람은 [이 포스트](https://wkdtjsgur100.github.io/database-terms)를 먼저 참고하자.
 
-# 데이터베이스 정규화
+## 데이터베이스 정규화
 
 데이터베이스 정규화란 데이터의 중복을 줄이고 무결성을 향상 시키는 등 여러 목적을 달성하기 위해 관계형 데이터베이스를 정규화된 형태로 재디자인하는 것을 말한다.
 
-## 정규화의 목적
+### 정규화의 목적
 
 - 불필요한 데이터를 제거, 데이터의 중복을 최소화 하기 위해서
 - 데이터베이스 구조 확장 시 재디자인을 최소화
@@ -25,17 +25,17 @@ comments: true
 - 무결성 제약조건의 시행을 간단하게 하기 위해서
 - 각종 [이상 현상(Anomaly)](https://wkdtjsgur100.github.io/anomaly) 을 방지하기 위해서, 테이블의 구성을 논리적이고 직관적으로 한다.
 
-## 정규화의 대상
+### 정규화의 대상
 
 온라인 거래 시스템 같은 OLTP(OnLine Transaction Processing) 데이터베이스는 CRUD(Create, Read, Update, Delete) 가 많이 일어나기 때문에 정규화 되는것이 좋지만, 분석 리포트 같은 OLAP(OnLine Analytical Processing) 데이터베이스는 분석과 리포팅을 위해 사용되기 때문에 연산의 속도를 위해 반정규화(denormalization)의 대상이 된다.
 
 > 반정규화(denormalization)란, 정규화된 시스템을 성능 향상 및 개발과 운영의 단순화를 위해 역으로 정규화를 수행하는 것을 말한다. 일반적으로 join을 많이 사용해야 할 경우, 대량의 범위를 자주 처리하는 경우 등 조회에 대한 처리가 중요하다고 판단될 때 부분적으로 반정규화를 한다.
 
-## 정규화의 과정
+### 정규화의 과정
 
 정규화는 1정규화 ~ 6정규화 까지 있지만, 실무에서는 대체로 1~3 정규화까지의 과정을 거친다.
 
-## 제 1정규화(First Normal Form, 1NF)
+### 제 1정규화(First Normal Form, 1NF)
 
 테이블(Relation)이 제 1정규형을 만족했다는 것은 아래 세 가지 조건를 만족했다는 것을 의미한다.
 
@@ -62,7 +62,7 @@ comments: true
 
 위의 디자인은 Customer Name과 Customer Telephone Number가 One-to-Many의 관계를 형성하는 것을 알 수 있다.
 
-## 제 2정규화(Second Normal Form, 2NF)
+### 제 2정규화(Second Normal Form, 2NF)
 
 제 2정규화를 수행 했을 경우 테이블의 **모든 컬럼이 완전 함수적 종속을 만족한다.**(부분 함수적 종속을 모두 제거되었다.) 이를 이해하기 위해서는 부분 함수적 종속과 완전 함수적 종속이라는 용어를 알아야 한다.
 
@@ -83,7 +83,7 @@ comments: true
 따라서, 부분 함수 종속을 제거한 이후의 테이블은 아래와 같고, 이는 제 2정규형을 만족한 테이블이다.  
 ![부분 함수 종속 제거 후 테이블](http://dl.dropbox.com/s/x8481598dhnpzeg/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-12-03%2010.58.15.png)
 
-## 제 3정규화(Third Normal Form, 3NF)
+### 제 3정규화(Third Normal Form, 3NF)
 
 테이블(Relation)이 제 3정규형을 만족한다는 것은 아래 두 가지 조건을 만족하는 것을 의미한다.
 1. Relation이 제 2정규화 되었다.(The relation is in second normal form)
@@ -98,7 +98,7 @@ comments: true
 
 위 테이블은 3NF를 만족한 상태이다.
 
-# 출처
+## 출처
 
 - Wikipedia First Normal Form(http://en.wikipedia.org/wiki/First_normal_form)
 - Wikipedia Second Normal Form(http://en.wikipedia.org/wiki/Second_normal_form)

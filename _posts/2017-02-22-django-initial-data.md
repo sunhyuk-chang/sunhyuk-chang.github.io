@@ -8,7 +8,7 @@ tags: [ 'django', 'python', 'ORM' ]
 
 > [장고 공식 문서](https://docs.djangoproject.com/en/1.10/howto/initial-data/)를 참고해 작성
 
-# fixture를 사용
+## fixture를 사용
 
 fixture란 django가 DB에서 import하는 방식을 알고 있는 데이터들의 집합이라고 한다.(이게 뭔소리지)
 이미 몇몇 데이터를 가지고 있고 fixture를 생성하는 가장 직관적인 방법은 ```manage.py dumpdata``` 명령어를 사용하면 된다.  
@@ -62,11 +62,11 @@ manage.py loaddata <fixturename>
 loaddata를 실행할 때마다 데이터는 fixture에서 읽혀질꺼고 DB로 다시 로드된다.
 이는 fixture에서 생성된 열중 하나를 바꾸고 다시 loaddata를 실행한다면 예전에 만들었던 그 파일을 제거할 것이란 걸 알아두자.
 
-# migrations으로 initial-data 넣기
+## migrations으로 initial-data 넣기
 
 fixture를 사용하지 않고 자동적으로 initial-data를 넣고 싶다면 RunPython 혹은 RunSQL을 이용해 앱의 migration을 생성하자.
 
-## RunPython
+### RunPython
 
 ```
 class RunPython(code, reverse_code=None, atomic=None, hints=None, elidable=False)
@@ -83,14 +83,14 @@ hint인자는 allow_migrate() 함수에 ```**hints```로 전달된다. allow_mig
 migration file에서 migration class 위에 따로 함수를 분리해서 코드를 작성해서 RunPython에 이를 전달하는 것이 권장된다. 아래는 예제
 
 ``` python
-# -*- coding: utf-8 -*-
+## -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
 from django.db import migrations, models
 
 def forwards_func(apps, schema_editor):
-    # We get the model from the versioned app registry;
-    # if we directly import it, it'll be the wrong version
+    ## We get the model from the versioned app registry;
+    ## if we directly import it, it'll be the wrong version
     Country = apps.get_model("myapp", "Country")
     db_alias = schema_editor.connection.alias
     Country.objects.using(db_alias).bulk_create([
@@ -99,8 +99,8 @@ def forwards_func(apps, schema_editor):
     ])
 
 def reverse_func(apps, schema_editor):
-    # forwards_func() creates two Country instances,
-    # so reverse_func() should delete them.
+    ## forwards_func() creates two Country instances,
+    ## so reverse_func() should delete them.
     Country = apps.get_model("myapp", "Country")
     db_alias = schema_editor.connection.alias
     Country.objects.using(db_alias).filter(name="USA", code="us").delete()
@@ -120,4 +120,4 @@ class Migration(migrations.Migration):
 만약 South로 부터 업그레이드 하고 있다면, 이건 기본적으로 한 operation과 같은 South 패턴입니다 - ORM과 사용가능한 스키마 operations와 함께 앞 뒤로 하나 혹은 두개의 메서드. 대부분의 시간은, orm.Model 또는 orm["appname","Model"] 레
 
 
-## RunSQL  
+### RunSQL  

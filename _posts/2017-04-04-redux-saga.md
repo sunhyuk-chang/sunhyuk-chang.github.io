@@ -8,7 +8,7 @@ tags: [ 'react', 'redux', 'redux-saga' ]
 
 > redux-saga에서 saga helper에 관한 [공식 블로그](https://redux-saga.github.io/redux-saga/docs/basics/UsingSagaHelpers.html)에서 제공하는 문서를 번역, 요약한 자료입니다.
 
-## redux-saga 란?
+### redux-saga 란?
 
 > redux-saga is a library that aims to make side effects (i.e. asynchronous things like data fetching and impure things like accessing the browser cache) in React/Redux applications easier and better.
 
@@ -17,7 +17,7 @@ tags: [ 'react', 'redux', 'redux-saga' ]
 > 출처 - [redux-saga github](https://github.com/redux-saga/redux-saga)
 
 
-## saga helper를 사용해보자.
+### saga helper를 사용해보자.
 
 redux-saga는 몇몇 특정 액션들이 스토어에 보내질 때, 여러 task들을 함께 실행하기 위한 내부적인 함수를 감싸는 몇몇 helper effect들을 제공합니다.  
 

@@ -17,7 +17,7 @@ fwrite를 사용하려고도 해봤지만 뭔가 복잡해지게 되고 잘 안�
 
 를 이용해서 Vector 데이터들을 컨트롤 해봤다.
 
-### File Input Example
+#### File Input Example
 
 ``` cpp
     std::vector<DataType> newInfos;
@@ -39,7 +39,7 @@ fwrite를 사용하려고도 해봤지만 뭔가 복잡해지게 되고 잘 안�
 
 여기서 DataType은 자료형(int,std::string,struct,class 등)를 의미한다.
 
-### File Output Example:
+#### File Output Example:
 
 ``` cpp
     std::string writablePath = FileUtils::getInstance()->getWritablePath();

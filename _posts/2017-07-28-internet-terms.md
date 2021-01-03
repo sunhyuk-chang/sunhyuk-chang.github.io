@@ -9,7 +9,7 @@ tags: [ 'server' ]
 > 코딩을 오랫동안 해왔지만, 기초적인 용어들과 개념들이 명확하지 않은 것들이 많았기 때문에  
 > 생활코딩 강의를 보며 명확하게 정리도 하고 몰랐던 것들도 몇 가지 짧게 요약해 정리해 보았다.
 
-## DNS(Domain Name Server)는 어떻게 동작할까?
+### DNS(Domain Name Server)는 어떻게 동작할까?
 
 ![DNS](/images/posts/DNS.png)
 
@@ -20,27 +20,27 @@ DNS는 작성엔 도메인에 따른 ip를 반환해주고, 클라이언트는 �
 * 참고 : DNS도 물론 ip를 가지고 있다!
 ```
 
-## 공인 IP(Public IP), 사설 IP(Private IP), 유동 IP(Dynamic IP), DDNS(Dynamic DNS)
+### 공인 IP(Public IP), 사설 IP(Private IP), 유동 IP(Dynamic IP), DDNS(Dynamic DNS)
 
-### 공인 IP(Public IP)
+#### 공인 IP(Public IP)
 
 특정 기기에 부여된 IP, 공유기에 일반적으로 부여되고, 각 컴퓨터들은 사설 IP를 쓰는 경우가 많다.
 
-### 사설 IP(Private IP)
+#### 사설 IP(Private IP)
 
 공유기로 기기를 여러대 나눴을때, 각 컴퓨터에 부여되는 IP를 말한다. 외부에서 사설 IP가 부여된 기기에 접속하려면, 포트포워딩을 통해 접속해야한다.
 
-### 유동 IP(Dynamic IP)
+#### 유동 IP(Dynamic IP)
 
 통신사에서 오랫동안 쓰지 않은 기기의 IP를 회수해 다른 기기에 부여할 수도 있는데, 이를 유동 IP라 부른다.
 
 문제는 IP가 회수 되었을 때 DNS에서 이를 tracking 하지 못하는 문제가 생기는데, 이를 해결하기 위해 DDNS가 있다.
 
-### DDNS(Dynamic DNS)
+#### DDNS(Dynamic DNS)
 추적당하는 기기가 DNS에게 계속해서 자신의 IP를 알려줌으로서, sync를 맞추게 하는 것이다.
 
 
-## 호스팅(Hosting)
+### 호스팅(Hosting)
 
 - HOST : 인터넷에 접속된 각각의 기기들을 의미한다.
 - 호스팅 : 서버의 운영(서버의 보안과 안정적인 네트워크 관리 등)을 대행해주는 것을 의미한다.
@@ -49,12 +49,12 @@ DNS는 작성엔 도메인에 따른 ip를 반환해주고, 클라이언트는 �
 
 - IDC(Internet Data Center) : 서버들이 몰려있는 센터이다. 안전한 보안과, 빵빵한 네트워크가 보장되어야 한다
 
-## 클라우드 컴퓨팅(Cloud Computing)
+### 클라우드 컴퓨팅(Cloud Computing)
 
 인프라의 질적/양적 발전에 의미가 있고, 호스팅과는 본질적으로는 같다.  
 클라우드 컴퓨팅에는 '가상화 종량제'라는 개념이 핵심이다.
 
-### 가상화 종량제
+#### 가상화 종량제
 
 이 용어를 분리해서 알아보자.  
 <br/>
@@ -65,22 +65,22 @@ DNS는 작성엔 도메인에 따른 ip를 반환해주고, 클라이언트는 �
 <br/>
 즉, 가상화 종량제란 실제 물리적인 컴퓨터들을 가상화 시켜 호스팅 시 비용을 트래픽에 따라 유동적으로 알맞게 지불하게 한다는 개념이다.
 
-### IaaS, PaaS, SaaS
+#### IaaS, PaaS, SaaS
 
 클라우드 컴퓨팅 위에서 선택할 수 있는 옵션이 있는데, IaaS, PaaS, SaaS 총 3가지가 있다.  
 다음 그림을 참고해서 설명을 보자.
 
 ![OPTIONS](/images/posts/options.png)
 
-#### IaaS(Infrastructure as a Service)
+##### IaaS(Infrastructure as a Service)
 
 컴퓨터, 운영체제만을 사업자가 대신 설치해 준다. Azure, AWS, 여러 서버 호스팅 서비스 등을 IaaS라 한다.
 
-#### PaaS(Platform as a Service)
+##### PaaS(Platform as a Service)
 
 IaaS에서 Platform을 추가로 사업자가 대신 설치해준다(그림 참고). 웹 호스팅이 대표적인 예다.
 
-#### SaaS(Software as a Service)
+##### SaaS(Software as a Service)
 
 PaaS에서 Software를 추가로 사업자가 대신 설치해 주는 서비스이다. 한글, 엑셀, 웹사이트 같은 일반적인 서비스들이 SaaS라고 불린다.
 

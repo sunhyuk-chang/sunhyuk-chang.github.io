@@ -8,7 +8,7 @@ tags: [ 'pytest', 'pytest-django' ]
 
 > [pytest-django 공식 문서](https://pytest-django.readthedocs.io/en/latest/)를 번역한 글입니다.
 
-# Quick Start
+## Quick Start
 
 ``` text
 $ pip install pytest-django
@@ -18,10 +18,10 @@ DJANGO_SETTINGS_MODULE 가 정의되어 있는지와 우리 테스트를 발견�
 ([테스트를 감지하지 못할 때](https://pytest-django.readthedocs.io/en/latest/faq.html#faq-tests-not-being-picked-up)를 참고)
 
 ``` text
-# -- FILE: pytest.ini (or tox.ini)
+## -- FILE: pytest.ini (or tox.ini)
 [pytest]
 DJANGO_SETTINGS_MODULE = test_settings
-# -- 권장되는 옵션:
+## -- 권장되는 옵션:
 python_files = tests.py test_*.py *_tests.py
 ```
 
@@ -31,7 +31,7 @@ pytest로 테스트를 돌리면 끝
 $ pytest
 ```
 
-# 왜 Django manage.py test 대신 사용할까?
+## 왜 Django manage.py test 대신 사용할까?
 
 Django 표준 test 메커니즘에 나타나지 않는 pytest의 특별한 장점이 있다.
 

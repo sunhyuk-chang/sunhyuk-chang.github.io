@@ -9,7 +9,7 @@ tags: [ 'selenium', 'python' ]
 selenium을 이용해서 functional test를 쨔는 도중, 특정 element를 클릭하는 부분을 쨔야하는 경우가 있었는데,
 
 ``` python
-# 다음과 같이 시도해 보았다.
+## 다음과 같이 시도해 보았다.
 driver.find_element_by_xpath("//form[@class='ui form']/button").click()
 ```
 
@@ -20,7 +20,7 @@ driver.find_element_by_xpath("//form[@class='ui form']/button").click()
 
 ``` python
 from selenium.webdriver.common.keys import Keys
-# 다음과 같이 해결
+## 다음과 같이 해결
 driver.find_element_by_xpath("//form[@class='ui form']/button").send_keys(Keys.ENTER)
 ```
 

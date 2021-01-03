@@ -9,7 +9,7 @@ comments: true
 
 > Some sites have a block for specific ip addresses. Here, I am going to detail a process in which we can access these blocked websites through temporary ip from selenium (with the help of Tor).
 
-# environment
+### environment
 
 Just for your information, here are the programs I used for my test environment.
 
@@ -19,9 +19,9 @@ Just for your information, here are the programs I used for my test environment.
 - firefox 57.0.1
 - geckodriver 0.19.1
 
-# Crawling with temporary IP address
+### Crawling with temporary IP address
 
-## FIRST STEP: Install Tor
+#### FIRST STEP: Install Tor
 
 First,  Let’s install the Tor browser.  
 
@@ -41,7 +41,7 @@ tcp        0      0 127.0.0.1:9050          0.0.0.0:*               LISTEN      
 tcp6       0      0 :::22                   :::*                    LISTEN      -
 ```
 
-## SECOND STEP: Forward IP address with WebDriver
+### SECOND STEP: Forward IP address with WebDriver
 
 Let's check a current IP address.
 
@@ -102,7 +102,7 @@ The result from this execution is as follows:
 My IP address was changed to `77.247.181.162`!
 
 
-## Forward IP address with RemoteWebDriver
+### Forward IP address with RemoteWebDriver
 
 With RemoteWebDriver, You can use WebDriver both remotely and locally in a similar fashion.  
 The primary difference is that a remote WebDriver needs to be configured so that it can run your tests on a separate machine.
@@ -111,7 +111,7 @@ The primary difference is that a remote WebDriver needs to be configured so that
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
 . . .
-# Other parts of code are completely same with ip forwarding in WebDriver
+## Other parts of code are completely same with ip forwarding in WebDriver
 driver = webdriver.Remote('http://127.0.0.1:4444/wd/hub', DesiredCapabilities.FIREFOX, browser_profile=profile)
 
 . . .

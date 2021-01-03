@@ -8,7 +8,7 @@ tags: [ 'circle-ci', 'facebook api', 'ci', 'test' ]
 
 > CircleCI를 이용해 Facebook Login을 테스트 하는 과정을 단계 별로 기술해 보았음
 
-## 로컬에서의 환경 세팅(python 3.6.0)
+### 로컬에서의 환경 세팅(python 3.6.0)
 1) 가장 먼저, Facebook Login 테스트 을 위해 python 환경 설정부터 해보자
 일단  [이 링크](https://cjh5414.github.io/python-%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD%EA%B5%AC%EC%B6%95/)
 를 보고 pyenv + virtualenv + autoenv 를 설정한다.
@@ -41,7 +41,7 @@ http://localhost:8000 을 돌리기 위해, ```python -m http.server 8000 &```
 위 소스를 넣고 pytest selenium-browser.py를 해보면, 테스팅이 잘 되는 것을 알 수 있다.
 __이제 ci를 붙여보자__
 
-## 위의 상태에서 CIRCLECI를 추가로 붙여보자
+### 위의 상태에서 CIRCLECI를 추가로 붙여보자
 
 1. 같은 경로에 circle.yml 파일을 만든다.
 circleci configuration에 대한 내용은

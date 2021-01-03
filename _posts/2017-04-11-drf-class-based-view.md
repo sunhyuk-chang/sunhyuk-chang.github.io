@@ -8,7 +8,7 @@ tags: [ 'DRF', 'django-rest-framework' ]
 
 > 본 문서는 [DRF 공식 문서](http://www.django-rest-framework.org/api-guide/views/#class-based-views)를 번역한 문서입니다.
 
-## 클래스 기반 뷰
+### 클래스 기반 뷰
 
 " django 클래스 기반 view는 예전 스타일의 view로 부터 시작하는 것을 환영한다." -  Reinout van Rees  
 

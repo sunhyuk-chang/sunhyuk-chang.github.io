@@ -8,7 +8,7 @@ tags: [ 'react', 'redux', 'redux-form' ]
 
 > Redux store를 통해 React Component 내 form 데이터를 관리해주는 라이브러리인 [redux-form 공식 문서](http://redux-form.com/6.5.0/docs/GettingStarted.md/)를 보고 번역하였음.
 
-## redux-form 시작하기
+### redux-form 시작하기
 
 redux-form은 주로 다음의 네 가지로 구성됩니다.
 
@@ -17,9 +17,9 @@ redux-form은 주로 다음의 네 가지로 구성됩니다.
 3. 개개의 필드가 redux store에 입력하는 것을 연결하는 Field component
 4. 애플리케이션을 통해 form과 상호작용하기 위한 다양한 Action Creator들
 
-## 구현 가이드
+### 구현 가이드
 
-### Step 1
+#### Step 1
 
 가장 먼저 해야할 일은 redux에 redux-form reducer를 전달하는 것입니다.  
 얼마나 많은 form 컴포넌트가 앱에 사용되는가에 관계없이 이 작업은 한번만 하면 됩니다.
@@ -36,7 +36,7 @@ const reducer = combineReducers(reducers)
 const store = createStore(reducer)
 ```
 
-### Step 2
+#### Step 2
 
 reduxForm()으로 form component를 decorate합니다.  
 이것은 form 상태에 대한 정보와 form을 전송하는 기능들을 제공하는 props와 함께 컴포넌트를 전달합니다.  
@@ -79,7 +79,7 @@ ContactForm = reduxForm({
 export default ContactForm;
 ```
 
-### 끝!
+#### 끝!
 
 여전히 해야 할 것이 있다:
 

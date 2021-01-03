@@ -23,7 +23,7 @@ select_elem = driver.find_element_by_xpath("//select[@name='" + select_name + "'
 
 for option in select_elem.find_elements_by_tag_name('option'):
     if option.text == option_text:
-        option.click() # select() in earlier versions of webdriver
+        option.click() ## select() in earlier versions of webdriver
         break
 ```
 

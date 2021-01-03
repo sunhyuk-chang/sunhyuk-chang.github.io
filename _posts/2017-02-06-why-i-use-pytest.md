@@ -8,7 +8,7 @@ tags: [ 'python', 'test', 'pytest' ]
 
 > 본 글은 Andrew J Todd esq.가 작성한 [이 링크](http://halfcooked.com/presentations/pyconau2013/why_I_use_pytest.html) 를 해석한 자료입니다.
 
-# Intro
+## Intro
 
 unit testing을 해본적이 있나요? 항상 프로젝트에 테스트를 추가하려 했지만 어디에서 시작할지 몰랐나요? 이 글은 당신의 모듈, 패키지 혹은 전체 프로젝트의 unit testing을 친절하게 설명합니다.  
 
@@ -18,7 +18,7 @@ unit testing의 이점을 설명하는 많은 글들, 책들, 블로그 포스�
 
 이 글을 위해 프로젝트는 몇몇 파이썬 코드로 구성됩니다(단일 기능에서 부터 완전한 app system 까지). 또한 전체 애플리케이션 시스템을 테스트하는 것과 같은 기능을 하는 테스트에도 동일한 원칙이 적용됩니다.
 
-# Unit Testing이란 무엇인가?
+## Unit Testing이란 무엇인가?
 
 우리는 명확하게 일단 몇몇 기초 개념을 빠르게 훑겠습니다. Unit Testing은 어떤 한 모듈 혹은 애플리케이션 내 코드가 예상대로 작동하는지 점검하는 반복가능한 어떤 활동이고, 이는 대개 당신의 코드를 테스트하는 코드의 형태로 구성됩니다. 우리는 주로 테스트 코드를 테스트 하는 코드를 작성할 필요는 없습니다. Unit Testing의 핵심적인 특징은 테스트들은 서로 분리되어 있어야 한다는 것, 실행은 자동화 되어야 한다는 것, 응용프로그램의 동일한 부분을 테스트하는 테스트가 일괄처리로 그룹화 된다는 것입니다.  
 
@@ -28,7 +28,7 @@ unit testing의 이점을 설명하는 많은 글들, 책들, 블로그 포스�
 
 테스트는 필요한 경우 개발자들이 전체 테스트 케이스의 subset들을 실행 가능하게 하기 위해 일괄처리로 그룹화 되어있습니다. 이는 이미 존재하는 테스트들을 추가하고 바꾸는데 더 쉽게 만들어주게 됩니다.
 
-# 왜 Unit Test 인가?
+## 왜 Unit Test 인가?
 
 명확한 이유 외에 - "내 코드가 동작하는것을 아는것" - 프로젝트에 Unit Testing을 적용하는데 다른 이점들이 있습니다. <br>
 
@@ -44,7 +44,7 @@ Unit Testing은 너가 코드를 '어떻게' 작성하는지에 대해 생각 �
 
 다른 Unit Testing의 이점은 문제를 빠르게 발견하고, 변화를 수월하게 하고, 통합을 간소화 시키며 디자인을 향상시키는데 있습니다. 자세한건 Wikipedia에 있는 [Unit Testing 글](https://en.wikipedia.org/wiki/Unit_testing) 을 참조하세요.
 
-# Unit Test 라이브러리
+## Unit Test 라이브러리
 
 파이썬 표준 라이브러리는 [unittest](https://docs.python.org/2/library/unittest.html) 입니다. 이는 Java의 [junit](http://junit.org/junit4/)을 기반으로 합니다. 만약 자바 프로그래머 라면 unittest는 시작점이 될 것입니다.<br>
 
@@ -59,7 +59,7 @@ def parse_connection(connection_string):
       Connection string should be of the form 'database://username@password'
       """
       if '@' in connection_string:
-          # Username is characters between '://' and '@'
+          ## Username is characters between '://' and '@'
           slash_position = connection_string.find('://')
           at_position = connection_string.find('@')
           user_name = connection_string[slash_position+3:at_position]
@@ -95,7 +95,7 @@ unittest.TestCase가 무엇이 있는지, 테스트를 돌리는데 unittest.mai
 
 제가 py.test를 좋아하는 또 다른 이유는 클래스 또는 모듈 수준에서 테스트의 기능들을 해제 설정할 수 있다는 것에 있습니다(일관된 테스트 상태를 유지하기 위해). 이는 사실 하나 이상의 테스트를 같이 설정하고 잠재적으로 다른 테스트에 영향을 미치기 때문에 분리 원칙을 위반하는 것입니다. 하지만 이건 적절하게 사용하는 실질적인 좋은 예제들은 Zen of Python의 순수 관점을 능가합니다. 복잡하거나 비싸고 큰 설정을 요구 하는 테스트 기능들을 필요로 하는 곳에 - 전체 데이터베이스를 만드는 것이나 거대한 랜덤화된 테스트 데이터 셋 같은 -  각각의 테스트 셋팅을 반복하는 것은 매우 큰 시간이 듭니다. 긴 테스트들을 작동시키는 것은 자주 쓰이지 않습니다. 만약 다른 테스트들과 방해하는 것 없이 테스트 기능들 사이에 상태를 공유할 수 있다면 복잡한 설정과 해제 기능을 공유하는 것은 전체 테스트 케이스를 작동 시키는 데 많은 시간을 줄여줍니다.
 
-# 어떻게 Unit Testing을 시작 할 것인가
+## 어떻게 Unit Testing을 시작 할 것인가
 
 더 중요한 것은 Unit Testing을 어떻게 시작할까요? 많은 사람들은 애플리케이션, 파일의 컬렉션, 단지 심플한 하나의 모듈을 테스팅 하려고 애를 쓰는 상황에 놓입니다. 속담에 이런 말이 있는데 - 천리길도 한걸음 부터 - 그렇다면 우리는 어떻게 한걸음을 내딛어야 할까요?<br>
 
@@ -140,7 +140,7 @@ class Portfolio(object):
 
 코드를 위한 자동화된 unit 테스트들을 작성할 때 몇몇 주목해야 할 다른 점들이 있다. Unit 테스트 코드는 다르게 보일것입니다. 여기엔 좀더 여러 기능들과 방법들이 있을것이고 이들은 더 작아질 것입니다. Unit Testing은 당신이 각각의 메서드가 한가지만 훌륭히 수행하는데 집중하게 해줍니다.
 
-# 내 테스트 코드는 어디에 있어야 할까?
+## 내 테스트 코드는 어디에 있어야 할까?
 
 py.test를 사용했을 때 테스트 코드를 넣어야 할 곳은 어디일까? 유일하게 어려우면서도 빠른 방법은 어플리케이션 코드로 부터 분리하고 유지하는 것이다. 같은 파일에 테스트 코드와 애플리케이션 코드를 넣을 수도 있지만, 이것은 나중엔 코드의 베이스를 더 어렵게 만들게 된다. 좋은 방법은 테스를 함께 그룹짓고 명확히 구분시키는 것이다. py.test는 test가 포함된 메서드나 클래스 이름으로 시작하는 것을 권장하기 때문에 여기서 도움이 됩니다. 세트를 완성하기 위해 저는 대체로 tests로 불리는 어플리케이션 코드와 같은 디렉토리에 뒀습니다.<br>
 
@@ -148,7 +148,7 @@ py.test를 사용했을 때 테스트 코드를 넣어야 할 곳은 어디일�
 
 마지막으로, 저는 Pod Delusion podcast의 이슈 182 를 듣고 있었고 이는 USS Thresher 잠수함의 잃어버린 한 부분입니다. 이 잔해는 당신에게 남기고 싶었던 훌륭한 문구가 있었습니다. - "결과를 듣고 싶지 않다면 테스트를 실행하지 마라"
 
-# 읽을거리
+## 읽을거리
 
 단위 테스팅에 대한 몇가지 소개(주로 unittest 사용)
 

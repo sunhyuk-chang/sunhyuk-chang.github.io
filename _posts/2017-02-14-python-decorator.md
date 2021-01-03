@@ -8,7 +8,7 @@ tags: [ 'python', 'decorator' ]
 
 > 본 문서는 [python wiki](https://wiki.python.org/moin/PythonDecorators#What_is_a_Decorator) 와 [wikipedia](https://en.wikipedia.org/wiki/Python_syntax_and_semantics#Decorators)를 참고해 쓴 문서입니다.
 
-# About this page
+## About this page
 
 이 페이지는 python에 데코레이터를 추가하는 과정의 역사가 문서화 되어있습니다.
 

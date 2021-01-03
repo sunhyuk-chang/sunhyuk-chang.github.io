@@ -6,45 +6,45 @@ category: python
 tags: [ 'python' ]
 ---
 
-# pyenv, virtualenv, autoenv ??
+## pyenv, virtualenv, autoenv ??
 
-## pyenv란?
+### pyenv란?
 
 로컬에서 다양한 파이썬 버전을 쉽게 쓸 수 있도록 도와주는 것.  
 어떤 프로젝트에서는 python 3.5.2를, 다른 프로젝트에서는 python 2.7.3을 쓰고 싶거나 할 때 쓰인다.  
 
-## virtualenv란?
+### virtualenv란?
 
 로컬에서 다양한 파이썬 환경을 구축하기 위한 것.  
 python package(pip)에 관한 의존성을 해결해 줄 수 있다.  
 
-## autoenv란?
+### autoenv란?
 
 virtualenv를 설정해주고 나면 프로젝트 폴더를 들어갈때마다 매번 pyenv activate 명령어를 이용해서 virtualenv을 활성화 시켜줘야 하는데, 그것을 자동으로 해주는 것이다.
 
 
-# 설정 가이드
+## 설정 가이드
 
-## pyenv 설정
+### pyenv 설정
 
 pyenv를 설치해서 python 버전을 관리하자.(버전은 python 3.6.0으로 설치하겠다)
 
 ``` shell
-# dependency 설치
+## dependency 설치
 sudo apt-get update
 sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev \
 libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev \
 xz-utils tk-dev
 
-# pyenv git clone
+## pyenv git clone
 git clone https://github.com/pyenv/pyenv.git ~/.pyenv
 echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bash_profile
 echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bash_profile
 echo 'eval "$(pyenv init -)"' >> ~/.bash_profile
 
 source ~/.bash_profile
-# python version 3.6.0 설치
-# 설치 가능한 버전은 pyenv install --list 명령어로 확인할 수 있다.
+## python version 3.6.0 설치
+## 설치 가능한 버전은 pyenv install --list 명령어로 확인할 수 있다.
 pyenv install 3.6.0
 ```
 
@@ -56,7 +56,7 @@ $ pyenv versions
   3.6.0
 ```
 
-## virtualenv 설정
+### virtualenv 설정
 
 다음과 같은 명령어로 virtual-env의 환경설정을 해주자. virtualenv의 env명은 임의로 `test-3.6.0-env`로 설정했다.
 
@@ -89,7 +89,7 @@ pyenv activate test-3.6.0-env
 ```
 
 
-## autoenv 설정
+### autoenv 설정
 
 다음과 같은 명령어로 autoenv를 설정한다.(virtualenv의 이름을 주의하자.)
 

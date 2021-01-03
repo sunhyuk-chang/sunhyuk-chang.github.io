@@ -6,23 +6,23 @@ category: react
 tags: [ 'jest', 'react' ]
 ---
 
-## Setup
+### Setup
 
 먼저 [create-react-app](https://github.com/facebookincubator/create-react-app)을 사용해서 리액트 앱을 설치한다.
 
 ``` shell
-$ brew install node # node 설치
-$ npm install -g create-react-app # 리액트 앱 설치
-$ create-react-app my-app # my-app이라는 이름의 리액트 앱 설치
+$ brew install node ## node 설치
+$ npm install -g create-react-app ## 리액트 앱 설치
+$ create-react-app my-app ## my-app이라는 이름의 리액트 앱 설치
 $ cd my-app/
-$ npm start # 서버 실행
+$ npm start ## 서버 실행
 ```
 
 > create-react-app은 테스트를 하는 방법에 대해서 [github running tests](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#running-tests)라는 곳에 자세히 설명해놓았고 참고해서 간결하게 작성했다.
 
-## 테스트 작동
+### 테스트 작동
 
-### 파일 이름 규칙
+#### 파일 이름 규칙
 
 1. ```__test__``` 폴더 내 이름이 .js로 끝나는 파일들
 2. 이름이 .test.js로 끝나는 파일
@@ -50,7 +50,7 @@ dependencies:
 
 을 추가했다.
 
-### 테스트 작성
+#### 테스트 작성
 
 테스트를 만들기 위해서, it()(또는 test()) 블록을 test 이름과 추가한다. describe() 블록에 있는 것들을 논리적으로 그룹화하기 위해 it()으로 감쌀 수도 있지만 추천하지도 않고 반드시 필요하지도 않다.  
 Jest는 assertion들을 만들기 위해서 expect()라는 내장된 함수를 제공한다.  
@@ -67,7 +67,7 @@ it('sums numbers', () => {
 
 그리고 jest.fn()함수와 expect(fn).toBeCalled()란 함수를 사용할 수도 있는데 이는 mock함수나 spies 를 생성할 떄 사용된다.
 
-### 컴포넌트 테스팅
+#### 컴포넌트 테스팅
 
 컴포넌트가 완전히 렌더링 되는지, 얕은 수준의 rendering인지 화인하고, 컴포넌트 렌더, 상태 변화 등을 테스팅하는 여러 수준의 테스팅 기술들이 있다.  
 
