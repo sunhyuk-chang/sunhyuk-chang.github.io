@@ -3,6 +3,8 @@ layout: about
 section-type: about
 ---
 
+## Chang's profile
+
 ## Education
 
 선린 인터넷 고등학교 - 웹운영과(2009 ~ 2012, 졸업)  
