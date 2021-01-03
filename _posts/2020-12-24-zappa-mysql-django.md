@@ -7,24 +7,24 @@ tags: ['django', 'serverless']
 comments: true
 ---
 
-# 개요
+## 개요
 
 본 글을 보기 전 [왜 Serverless와 Zappa를 사용해야 할까](https://wkdtjsgur100.github.io/why-zappa-and-serverless) 글을 보고 오시면 좋습니다.
 > Serverless와 zappa에 대해 이미 잘 알고 계신 분이라면 스킵해도 무방합니다.
 
-# Zappa + Aurora(Serverless RDBMS) + Django Rest Framework
+## Zappa + Aurora(Serverless RDBMS) + Django Rest Framework
 
 Zappa가 간단한 python 스크립트 정도는 배포하기가 매우 쉽지만, Zappa와 django, mysql을 연동하는 것이 생각보다 해야할 것들이 꽤 있습니다.
 그래서 github 레포에 작업을 미리 다 해놓고 그 과정을 작성했습니다.
 
-## github
+### github
 
 결과를 먼저 보고 싶으신 분들은 이 github에 들어가서 initial setup 절차를 진행하면 됩니다.
 
 [https://github.com/wkdtjsgur100/zappa-drf-mysql](https://github.com/wkdtjsgur100/zappa-drf-mysql)
 
 
-# 사전 지식
+## 사전 지식
 
 여기에서는 파이썬 가상환경과 django에 대해서는 자세히 설명하지 않습니다.
 아래 링크를 참고하시기 바랍니다.
@@ -33,7 +33,7 @@ Zappa가 간단한 python 스크립트 정도는 배포하기가 매우 쉽지�
 - django 공식 홈페이지: https://docs.djangoproject.com/ko/3.1/intro/
 - Zappa github: https://github.com/Miserlou/Zappa
 
-# 실행 환경
+## 실행 환경
 
 버전이 맞지 않으면 제대로 동작하지 않을 수 있습니다. 아래 설명하는 환경에서의 버전은 다음과 같습니다.
 
@@ -42,7 +42,7 @@ Zappa가 간단한 python 스크립트 정도는 배포하기가 매우 쉽지�
 - Django 3.1.4
 
 
-# 환경 설정
+## 환경 설정
 
 장고 프로젝트를 하나 생성해주겠습니다.
 
@@ -68,7 +68,7 @@ pip install django==3.1.4
 pip install zappa-django-utils
 ```
 
-# 데이터베이스(RDS/Aurora) 설정
+## 데이터베이스(RDS/Aurora) 설정
 
 AWS Aurora는 serverless 관계형 데이터베이스로, 자동 확장이 가능하고 트래픽이 있을때만 비용을 청구하게 할 수 있습니다.(정해진 시간동안 작동하게 할수도 있습니다.)
 
@@ -83,7 +83,7 @@ AWS Aurora는 serverless 관계형 데이터베이스로, 자동 확장이 가�
 - Aurora MySQL 2.04.8이 정식 버전입니다. Aurora MySQL 2.x 버전은 MySQL 5.7과 호환 가능하고, Aurora MySQL 1.x 버전은 MySQL 5.6과 호환됩니다. mysql 8.0은 아직 지원하지 않습니다.
  - 따라서 Aurora를 사용한다면 로컬도 MySQL 버전을 5.7로 맞춰주는 것이 좋을듯 합니다.
 
-# RDS - django 서버 연결하기
+## RDS - django 서버 연결하기
 
 가장 먼저 django에서 mysql을 연결할 수 있는 mysql 관련 파이썬 패키지를 설치하고, 설치된 파이썬 패키지를 requirements.txt로 옮기겠습니다.
 
@@ -137,7 +137,7 @@ ALLOWED_HOSTS = [
 ]
 ```
 
-# Zappa 설정
+## Zappa 설정
 
 zappa는 먼저 aws 계정이 연동되어야 하기 때문에, aws 계정 연동을 먼저 해야합니다.  
 AWS IAM 서비스 콘솔에 들어가서, 접근 권한을 가지고 있는 사용자에 들어가서 보안 자격 증명 - 액세스 키 만들기를 통해 액세스 키 id와 액세스 시크릿 키를 복사해서, `~/.aws/credentials` 파일을 생성하고 IAM 정보를 다음과 같이 넣습니다.
@@ -174,7 +174,7 @@ region=ap-northeast-2
 여기서 s3_bucket은 Lambda에 배포될 소스코드가 업로드되는 S3 버킷입니다.
 
 
-# Lambda의 vpc config 설정 하기
+## Lambda의 vpc config 설정 하기
 
 Aurora와 Lambda는 같은 vpc에 있어야 Lambda 서버에서 Aurora에 접근할 수 있습니다. 그렇지 않으면 NAT를 사용해야 하는데, 비용 문제도 있어서 특별한 경우 아니면 같은 VPC에 있는게 좋습니다.  
 Aurora 콘솔에 들어가서, Aurora 데이터베이스가 속한 VPC의 Subnet Id들을 복사합니다. 그리고 `zappa_settings.json` 파일에 다음과 같은 내용을 추가합니다. SecurityGroupIds는 Lambda가 속하는 security group id를 작성합니다.
@@ -191,7 +191,7 @@ Aurora 콘솔에 들어가서, Aurora 데이터베이스가 속한 VPC의 Subnet
 }
 ```
 
-# django-rest-framework 설정하기
+## django-rest-framework 설정하기
 
 django만 이용한다면 이 과정을 생략해도 좋습니다.  
 drf를 먼저 설치해주고 settings/base.py의 INSTALLED_APPS에 rest_framework를 추가해줍니다.
@@ -200,7 +200,7 @@ drf를 먼저 설치해주고 settings/base.py의 INSTALLED_APPS에 rest_framewo
 pip install djangorestframework
 ```
 
-# static 파일(css, js, html 등) 설정하기
+## static 파일(css, js, html 등) 설정하기
 
 django에서 static 파일들이 쓰여야 할 경우가 있습니다.(어드민 같은 경우에) 이 static 파일을 S3에 저장해두고, 접근할 수 있도록 하겠습니다. 가격은 GB당 0.023 USD이기 때문에 static 파일에 대한 비용은 거의 나오지 않습니다.
 
@@ -251,7 +251,7 @@ class ZappaS3Boto3Storage(S3Boto3Storage):
 
 이제 static 파일 관련 셋팅도 끝이 났습니다.
 
-# 배포하기
+## 배포하기
 
 이제 드디어 배포할 준비가 끝났습니다.  
 `zappa deploy dev` 명령으로 배포해보겠습니다.  
@@ -262,7 +262,7 @@ class ZappaS3Boto3Storage(S3Boto3Storage):
 zappa manage dev "collectstatic --noinput"
 ```
  
-# 데이터베이스 migrate
+## 데이터베이스 migrate
 
 변경된 데이터베이스를 적용하는 migrate 작업이 필요하다면 다음 명령어를 실행합니다.
 
@@ -270,7 +270,7 @@ zappa manage dev "collectstatic --noinput"
 zappa manage dev migrate
 ```
 
-# 코드 수정 이후의 배포
+## 코드 수정 이후의 배포
 
 이미 배포된 상태에서 코드를 수정하고 다시 배포하려면 다음 명령어를 수행합니다.
 
@@ -278,7 +278,7 @@ zappa manage dev migrate
 zappa update dev
 ```
 
-# 배포 된 것 내리기
+## 배포 된 것 내리기
 
 배포된 내용들을 전부 내리고 싶을 경우에는 다음 명령어를 사용합니다.
 
@@ -286,10 +286,10 @@ zappa update dev
 zappa undeploy dev
 ```
 
-# Notes
+## Notes
 
 Lambda는 속한 VPC가 아닌 외부 네트워크와 통신하기 위해서는 NAT가 필요합니다. NAT 비용이 비싸기 때문에 비용을 고려할때 이것도 고려하는게 좋습니다.
 
-# 참고
+## 참고
 
 - https://romandc.com/zappa-django-guide/
