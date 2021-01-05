@@ -18,16 +18,16 @@ title: Jang
 
 ## Open Source Contribution
 
-- fingerprintjs2(7,500 star, Modern & flexible browser fingerprinting library) [2018.07]
+- fingerprintjs2 (Modern & flexible browser fingerprinting library) [2018.07]
     - [PR #357](https://github.com/Valve/fingerprintjs2/pull/357): Added feature to customize fingerprint component
     - [PR #350](https://github.com/Valve/fingerprintjs2/pull/350): Added feature related to enumerateDevice
     - [PR #346](https://github.com/Valve/fingerprintjs2/pull/346): Fixed bug in test code
     - [PR #344](https://github.com/Valve/fingerprintjs2/pull/344): Fixed bug in test code
 
-- cocos2d-x(Opensource game engine) contribute (13,000 star) [2016.03]
+- cocos2d-x (Opensource game engine) [2016.03]
     - [PR #15279](https://github.com/cocos2d/cocos2d-x/pull/15279): Changed rand() of getRandomObject in cocos2d-x data structure to uniform-distribution
 
-- create-react-app contribute(66,400 star)
+- create-react-app
     - [PR #3468](https://github.com/facebook/create-react-app/pull/3468): Fixed a typo
 
 ## Other Activities
