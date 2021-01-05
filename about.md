@@ -1,14 +1,13 @@
 ---
 layout: about
-section-type: about
+title: Jang
 ---
 
 ## Chang's profile
-
 ## Education
 
-선린 인터넷 고등학교 - 웹운영과(2009 ~ 2012, 졸업)  
-단국 대학교 - 소프트웨어학과 (2012 ~ 현재, 재학)
+- 선린 인터넷 고등학교 - 웹운영과(2009 ~ 2012, 졸업)  
+- 단국 대학교 - 소프트웨어학과 (2012 ~ 현재, 재학)
 
 ## Experience
 
@@ -52,13 +51,18 @@ section-type: about
 
 ## Skills
 
-- Advanced: django, python, selenium
-- Intermediate: git, Java, javascript, react.js, Android, C, C++, cocos2d-x
-- Beginner: PHP, HTML, CSS, MySQL, JSP
+#### Advanced
+django, python, selenium
 
-## Cooperation Ability
+#### Intermediate
+git, Java, javascript, react.js, Android, C, C++, cocos2d-x
 
-### Agile(Scrum + Kanban)
+#### Beginner
+PHP, HTML, CSS, MySQL, JSP
+
+### Cooperation Ability
+
+#### Agile(Scrum + Kanban)
 
 > SoftWare Maestro(http://swmaestro.kr) 에서 Noom Cop. 마케터와 Agile Consulting 전문가에게 지속적인 교육을 받았습니다. (1년)
 
@@ -70,12 +74,11 @@ section-type: about
     - Sprint 단위의 작업 진행
         - 매 Sprint 종료 시 고객 피드백을 통한 제품 관리
 
-### Git
-
+#### Git
 - [git flow를 사용한 브랜치 관리](https://wkdtjsgur100.github.io/git-flow/)
 - pull requests를 사용해 기능 완성 시 코드 리뷰
 
-### Others
+#### Others
 
 - 잠재고객 interview skill, 아이디어 회의 방법, 마케팅 전략, UX설계, 상황 대처 능력, 사업화 전략 등 스타트업과 관련된 지식들을 배움. ( 참고 링크: [2017.02 멘토링 일지](https://wkdtjsgur100.github.io/mentoring-log/) )
 - 고등학교 1학년부터 꾸준한 프로젝트 경험을 통해 프로그래머, 디자이너와의 커뮤니케이션이 원활함.
@@ -117,8 +120,6 @@ section-type: about
 ##### Overview
 "대학생 연결 모임 서비스" 라는 주제로 대학생들이 부담없이 만나서 맛있는 식사를 함께 하고 이야기 할 수 있는 장을 만드는 것을 목표로 하고있습니다. 대학생들은 여러 모임 유형인 '동아리', '대외활동' 등의 활동을 하고 있지만 꾸준한 참석, 장기적인 것이라는 부담감이 있습니다. 이와 동시에 혼밥족은 점점 늘어나고 있는 추세이고 이를 해결하기 위해 단기적인 대학생 식사 모임을 주선하는 서비스를 만들었습니다.
 
-> Created a networking site for college students to meet and share delicious meals under the theme of "College Student Connection Meeting Service" with 4 other developers and designers.
-
 ##### Role
 
 - react, react-router, redux, redux-saga 등을 사용해 SPA(Single Page Application) 구축
@@ -129,7 +130,6 @@ section-type: about
     - code coverage 사용
     - circleCI를 사용해 Continuous Integration
 - git flow을 사용해 팀원들과 협업
-
 
 #### Open Search Insight, *SoftWare Maestro(http://swmaestro.kr)* [2016.09 ~ 2016.12]
 
@@ -143,9 +143,7 @@ section-type: about
 
 이를 통해 마케팅에 어려움을 겪고 있는 스타트업 또는 광고 에이전시의 마케터들이 보다
 쉽게 고객을 이해하고 더 나은 페이스북 광고 효율 및 마케팅 효과를 얻을 수 있을 것으로 기대됩니다.  	
-실제 사업화 가능성 검증을 위해 티저 페이지를 오픈한 결과 수십명의 베타 사용자들을 모집할 수 있었습니다.  
-
-> Collected customer data by crawling publicly available user profile information via SNS (using phone numbers) for large pools of users provided by marketers. Analyzed the data to extract customer demographic distribution and lists of interests shared across the whole pool of customers.
+실제 사업화 가능성 검증을 위해 티저 페이지를 오픈한 결과 수십명의 베타 사용자들을 모집할 수 있었습니다.
 
 ##### Role
 - 트위터, 페이스북 API 기반 데이터 수집과 사전 학습
@@ -163,14 +161,10 @@ section-type: about
 > [https://bitbucket.org/Jangsunhyuk/newzombiehunter/src](https://bitbucket.org/Jangsunhyuk/newzombiehunter/src) (Advanced)
 
 ##### Overview
-
 Game Application based cocos2d-x(https://github.com/cocos2d/cocos2d-x/)  
 세계적인 오픈소스 게임엔진(cocos2d-x) 분석을 통해 가독성과 확장성이 높은 게임을 제작.
 
-> Developed a side scrolling game that allows the player to move the hero character using arrow keys, change the weaponry of the hero character and fight/kill zombies.
-
 ##### Role
-
 - UI/Effect/Tutorial/Ranking 시스템 개발
     - STL을 이용해 적절한 자료구조를 적용했고 스마트 포인터를 통해 효율적인 메모리 관리
 - 클래스 구조 설계
@@ -198,7 +192,6 @@ Game Application based cocos2d-x(https://github.com/cocos2d/cocos2d-x/)
 > [https://github.com/wkdtjsgur100/image-processing](https://github.com/wkdtjsgur100/image-processing)
 
 #### Overview
-
 KAIST SOC Robot War(http://www.socrobotwar.org/) 대회에서
 색종이 색깔 및 꼭지점 추적 알고리즘 개발(C++, openCV 미사용)
 
@@ -209,10 +202,10 @@ KAIST SOC Robot War(http://www.socrobotwar.org/) 대회에서
 - 색상 인식 알고리즘 구현
 - 알고리즘 설계
 
-# Github
+## Github
 
 [https://github.com/wkdtjsgur100](https://github.com/wkdtjsgur100)
 
-# Contact
+## Contact
 
 wkdtjsgur100@gmail.com
